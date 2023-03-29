@@ -13,7 +13,8 @@
         "<node_internals>/**"
       ],
       // "program": "${workspaceFolder}/http.js"
-      "program": "${workspaceFolder}/url.js"
+      // "program": "${workspaceFolder}/url.js"
+      "program": "${workspaceFolder}/jsonp.js"
     }
   ]
 }
