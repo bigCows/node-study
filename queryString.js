@@ -1,3 +1,8 @@
+/**
+ * 
+ * nodeJS--queryString模块练习
+ */
+
 let queryStr = require('querystring')
 
 let str = 'name=zs&sex=1&age=18'

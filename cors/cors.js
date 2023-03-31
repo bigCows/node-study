@@ -1,3 +1,8 @@
+/**
+ * 
+ * CORS 跨域
+ */
+
 const http = require('http')
 const url = require('url')
 const PORT = 3003

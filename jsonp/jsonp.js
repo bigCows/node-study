@@ -1,7 +1,12 @@
+/**
+ * 
+ * JSONP 跨域
+ */
+
 const http = require('http')
 const url = require('url')
-const PORT = 3003
 
+const PORT = 3003
 const service = http.createServer()
 
 service.on('request',(req,res) => {

@@ -1,3 +1,8 @@
+/**
+ * 
+ * nodeJS--url模块练习
+ */
+
 let url = require('url')
 let http = require('http')
 
@@ -7,6 +12,7 @@ const PORT = 3002
 const service = http.createServer()
 
 /**
+ * 
  * nodeJS中文网: https://nodejs.cn/api-v16/url.html#urlformaturl-options
  */
 

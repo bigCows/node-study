@@ -1,3 +1,8 @@
+/**
+ * 
+ * nodeJS--http模块简要练习
+ */
+
 var http = require('http')
 const PORT = 3001
 const service = http.createServer()
