@@ -1,6 +1,7 @@
 /**
  * 
  * nodeJS--url模块练习
+ * nodeJS--API: https://nodejs.cn/api-v16/url.html#urlformaturl-options
  */
 
 let url = require('url')
@@ -10,11 +11,6 @@ let http = require('http')
 const DOMAIN = 'http://www.baidu.com'
 const PORT = 3002
 const service = http.createServer()
-
-/**
- * 
- * nodeJS中文网: https://nodejs.cn/api-v16/url.html#urlformaturl-options
- */
 
 service.on('request',(req,res) => {
   // let queryString = url.parse(req.url).query  // 获取路径参数

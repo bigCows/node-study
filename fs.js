@@ -100,10 +100,10 @@ const fsP = require('fs/promises')
 // })
 
 // 基于promise删除文件
-fsP.readdir('./avatar-rn').then(async (data) => {
-  await Promise.all(data.map(item => {fs.unlink(`./avatar-rn/${item}`,(err) => {})}))
-  await fsP.rmdir('./avatar-rn')
-})
+// fsP.readdir('./avatar-rn').then(async (data) => {
+//   await Promise.all(data.map(item => {fs.unlink(`./avatar-rn/${item}`,(err) => {})}))
+//   await fsP.rmdir('./avatar-rn')
+// })
 
   
 // 文件拷贝

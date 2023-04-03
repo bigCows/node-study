@@ -78,7 +78,7 @@ const getData = (cb) => {
  * 处理爬虫数据
  */
 
-const spider = (data) => {
+const spider = (data) => {  
   let $ = cherrio.load(data)
   let myData = []
 
