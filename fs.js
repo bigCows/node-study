@@ -38,6 +38,10 @@ const fsP = require('fs/promises')
 //   console.log(err);
 //   console.log(content);
 // })
+fs.readFile('./static/login.html','utf-8',(err,content) => {
+  console.log(err);
+  console.log(content);
+})
 
 // 删除文件
 // fs.unlink('./avatar-rn/a.txt',(err) => {
