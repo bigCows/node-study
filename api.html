@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div>
+    <div>
+      <label>username</label>
+      <input id="username">
+    </div>
+    <div>
+      <label>password</label>
+      <input type="password" id="password">
+    </div>
+    <div>
+      <button id="btn">login</button>
+    </div>
+  </div>
+
+  <script>
+    let uname = document.querySelector('#username')
+    let pswd = document.querySelector('#password')
+    let btn = document.querySelector('#btn')
+
+
+    btn.addEventListener('click', async (e) => {
+      // get
+      const json = await fetch(`http://localhost:3000/api/login?uname=${uname.value}&pswd=${pswd.value}`)
+      const res = await json.json()
+      console.log(res);
+
+      // post
+      // const json = await fetch(`http://localhost:3000/api/loginpost`,{
+      //   method: 'post',
+      //   body:JSON.stringify({
+      //     uname: uname.value,
+      //     pswd: pswd.value
+      //   }),
+        
+      // })
+      // const res = await json.json()
+      // console.log(res);
+    })
+
+  </script>
+</body>
+</html>

@@ -16,12 +16,13 @@ use(router)
 
 const start = () => {
   service.on('request',(req,res) => {
+    res.setHeader('access-control-allow-origin','*')
     const URLParams = new URL(req.url,'http://127.0.0.1')
     try {
-      Router[URLParams.pathname](res)
+      Router[URLParams.pathname](req,res)
     } catch (error) {
       console.log(error);
-      Router['/404'](res)
+      Router['/404'](req,res)
     }
   })
 }
