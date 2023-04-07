@@ -4,17 +4,14 @@
   // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      // "program": "${workspaceFolder}/http.js"
-      // "program": "${workspaceFolder}/url.js"
-      "program": "${workspaceFolder}/jsonp.js"
+      "program": "${workspaceFolder}\\express\\router.js"
     }
   ]
 }

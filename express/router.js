@@ -6,8 +6,8 @@ const express= require('express')
  
  const app = express()
  const router = require('./index-router')
- const PORT = 3001
- 
+ const PORT = 3100
+
 //  验证下面所有接口
 app.use((req,res,next) => {
   console.log('验证token');
@@ -15,16 +15,20 @@ app.use((req,res,next) => {
 })
 
 // 会给router下的所有接口加上/login前缀
- app.use('/login',router)
+app.use('/login',router)
 
 
+// 抛出同步错误/异步错误需要借助next使其到达错误中间件
+// app.use((req,res) => {
+//   throw new Error('error')
+// })
 
-// 错误中间件放在最下面，防止堵塞代码
-app.use('/',(err,req,res,next) => {
+ // 错误中间件放在最下面，防止堵塞代码
+ app.use((err,req,res,next) => {
   console.log(err);
   res.status(404).send({
     errcode: -1,
-    errmsg:'token已过期,请重新登录',
+    errmsg:'error',
     data: null
   })
 })
