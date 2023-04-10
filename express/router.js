@@ -18,7 +18,7 @@ app.use((req,res,next) => {
 app.use('/login',router)
 
 
-// 抛出同步错误/异步错误需要借助next使其到达错误中间件
+// 抛出同步错误,异步错误需要借助next使其到达错误中间件
 // app.use((req,res) => {
 //   throw new Error('error')
 // })

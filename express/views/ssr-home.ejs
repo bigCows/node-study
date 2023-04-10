@@ -10,6 +10,22 @@
   ssr-home
   <h1>名称<%=name%></h1>
 
-  
+  <!-- 正常渲染html内容，不解析html标签 -->
+  <%= %> 
+
+  <!-- 解析html标签 -->
+  <%- %>
+
+  <!-- 注释标签，不会渲染在页面上 -->
+  <%# %>
+
+  <!-- 导入公共结构，且条件渲染 -->
+  <%-include('./ssr-home-components.ejs',{isShow: true}) %>
+
+  <ul>
+    <% for (let index = 0; index < data.length; index++) { %>
+    <li><%= data[index] %> </li>
+      <% } %>
+  </ul>
 </body>
 </html>

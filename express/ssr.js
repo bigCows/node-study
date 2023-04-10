@@ -12,8 +12,13 @@
  app.use(cors())
 
 //  配置模板引擎ejs
+// app.set('views','./views')
+// app.set('views engine','ejs')
+
+// 使用ejs直接渲染html文件
 app.set('views','./views')
-app.set('views engine','ejs')
+app.set('views engine','html')
+app.engine('html',require('ejs').renderFile) // 支持渲染html文件
 
 // 配置静态资源
 app.use(express.static('static'))
@@ -23,18 +28,26 @@ app.use(express.urlencoded({extended:false}))//处理form表单提交的数据
 app.use(express.json())//处理json提交的数据
 
 app.get('/home',(req,res) => {
+
+  // 模拟数据库查询数据
+  let data = ['name','age','sex','high']
   // 渲染模板给前端
-  res.render('ssr-home.ejs',{name:'mxf'})
+  // res.render('ssr-home.ejs',{name:'mxf',data})
+  res.render('ssr-home.html',{name:'mxf',data})
 })
 
 app.get('/login-page',(req,res) => {
   res.render('ssr-login.ejs')
 })
 
-app.post('/login',(req,res,next) => {
+app.post('/my/login',(req,res,next) => {
   try {
     if(req.body.username === 'mxf' && req.body.password === '123') {
-      res.render('ssr-home.ejs',{name:'mxf'})
+      // 模拟数据库查询数据
+      let data = ['name','age','sex','high']
+      // 渲染模板给前端
+      // res.render('ssr-home.ejs',{name:'mxf',data})
+      res.render('ssr-home.html',{name:'mxf',data})
     } else {
       res.render('ssr-login.ejs')
     }

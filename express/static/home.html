@@ -4,13 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 利用express相关API生成静态目录 -->
   <link rel="stylesheet" href="/css/home.css">
   <title>Document</title>
 </head>
 <body>
 
-<script>
 
+
+
+<script>
+    // 使用express获取请求参数
     ( async function f() {
       const res = await fetch('http://localhost:3300/home?name=home&age=2')
       const {data} = await res.json()
