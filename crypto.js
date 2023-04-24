@@ -29,7 +29,7 @@ Hmac.update('mmmmmm')
 const randomNum = String(Math.random() * Math.pow(10,16)).slice(0,16)
 
 const SECRET_KEY = 'mxf+02$485@91-=='
-let iv = 'asi!va=dlk'
+let iv = 'asi2!va3=2dl5kd2'
 let isData = '哈哈哈哈哈哈啊'
 
 /**
@@ -40,7 +40,7 @@ let isData = '哈哈哈哈哈哈啊'
  * @iv 加密算法的初始向量
  */
 const encrypt = (data,secertKey,iv) => {
-  let ciper = crypto.createCipheriv('aes-128-ccm',secertKey,iv,{authTagLength: 16})
+  let ciper = crypto.createCipheriv("aes-128-cbc",secertKey,iv)
   let encryted = ciper.update(data,'utf-8','hex')
   encryted += ciper.final('hex')
   console.log(encryted,'cc');
@@ -58,15 +58,16 @@ const isEncrypted = encrypt(isData,SECRET_KEY,iv)
  * @param {string} iv 
  * @description 解密暂时有误
  */
-// const decrypt = (data,secertKey,iv) => {
-//   data = Buffer.from(data,'hex').toString('binary')
-//   let dep = crypto.createDecipheriv('aes-128-ccm',secertKey,iv,{authTagLength: 16})
-//   let res = dep.update(data,'binary','utf8')
-//   let res2 = dep.final('utf8')
-//   console.log(res,'res');
-//   console.log(res2,'res2');
-//   console.log(res + res2,'res3');
-// }
-
-// decrypt(isEncrypted,SECRET_KEY,iv)
+ const decrypt = (data, secretKey, iv) => {
+  // 对密文进行 Base64 解码
+  const buf = Buffer.from(data, 'hex').toString('binary');
+  let dep = crypto.createDecipheriv('aes-128-cbc', secretKey, iv);
+  let res = dep.update(buf,'binary','utf8');
+  let res2 = dep.final('utf8');
+  return res + res2;
+  // console.log(res2, 'res2');
+  // console.log(res+res2, 'res2');
+}
+  const decryptStr = decrypt(isEncrypted,SECRET_KEY,iv)
+  console.log(decryptStr,'decryptStr');
 
